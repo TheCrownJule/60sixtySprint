@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 3.0f; 
     private Rigidbody2D rb2D;
-    private List<GameObject> inventory = new List<GameObject>();
     public float pickUpRange = 1f;
 
     void Start()
@@ -33,34 +32,10 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2(isoX, isoY); 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Pickup"))
-        {
-            // Add the object to the inventory
-            inventory.Add(other.gameObject);
-            Debug.Log("item added");
 
-            // Disable the object (you can also destroy it if needed)
-            other.gameObject.SetActive(false);
-        }
-    }
 
-    // Example method to remove an item from the inventory
-    public void RemoveFromInventory(GameObject item)
-    {
-        if (inventory.Contains(item))
-        {
-            inventory.Remove(item);
-            // Optionally, you can enable the item if needed.
-            item.SetActive(true);
-        }
-    }
 
-    // Example method to check if an item is in the inventory
-    public bool IsInInventory(GameObject item)
-    {
-        return inventory.Contains(item);
-    }
+
+    
 }
 
