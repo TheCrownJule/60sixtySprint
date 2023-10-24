@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement>
+        <ui:VisualElement name="Container" style="background-color: rgba(233, 233, 233, 255);">
+            <ui:Button text="Quit" display-tooltip-when-elided="true" />
+            <ui:Button text="Start" display-tooltip-when-elided="true" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: lower-center; justify-content: center; align-items: center; -unity-background-scale-mode: stretch-to-fill;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
