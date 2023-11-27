@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GroceryItem : ScriptableObject
 {
-    public string itemName;
+    public string itemNameID;
     public GameObject itemPrefab;
     public Vector3 position;
     public Quaternion rotation = Quaternion.identity;

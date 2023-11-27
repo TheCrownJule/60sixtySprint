@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79064470133aff44b60f1e04d251f8c, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: Apple
+  itemNameID: Apple
   itemPrefab: {fileID: 5596337004943666579, guid: 11376c8dc6da53a46a5ef433f91a4cc1, type: 3}
   position: {x: 2, y: 2, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}

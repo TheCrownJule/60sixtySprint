@@ -9,11 +9,11 @@ public class CollectionManager : MonoBehaviour
     public float collectionTime = 60.0f; // Timer duration in seconds
     public TextMeshProUGUI timerText; // UI Text to display the timer
     public TextMeshProUGUI collectedItemsText; // UI Text to display collected items
-  
+
     public List<string> collectedItems = new List<string>();
 
     private float timer;
-    public  bool isGameEnded = false;
+    public bool isGameEnded = false;
     public static CollectionManager instance;
 
     private void Awake()
@@ -54,6 +54,7 @@ public class CollectionManager : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             string itemName = other.name;
+            Debug.Log(itemName + " is the item name");
             if (!collectedItems.Contains(itemName))
             {
                 collectedItems.Add(itemName);
@@ -87,14 +88,14 @@ public class CollectionManager : MonoBehaviour
     void HandleGameWin()
     {
         isGameEnded = true;
-      
+
         Debug.Log("game won");
     }
 
     void HandleGameOver()
     {
         isGameEnded = true;
-        
+
         Debug.Log("game over");
     }
 }
