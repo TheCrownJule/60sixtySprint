@@ -1,56 +1,58 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
-using Google.Protobuf.WellKnownTypes;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 Movement;
-    private Rigidbody2D rb2D;
-    public Animator animator;
     public float moveSpeed = 3.0f;
-
+    private Rigidbody2D rb2D;
     public float pickUpRange = 1f;
+    public bool isStunned = false;
 
-    void Awake()
+    IEnumerator StunCooldown()
+    {
+
+        yield return new WaitForSeconds(3f);
+        isStunned = false;
+    }
+    void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
-
-    private void OnMovement(InputValue value)
-    {
-        Movement = value.Get<Vector2>(); // get the value from the animator
-
-        if (Movement.x != 0 || Movement.y != 0)
-        {
-            animator.SetFloat("X", Movement.x); // set the value of the animator
-            animator.SetFloat("Y", Movement.y); // set the value of the animator
-
-            animator.SetBool("isWalking", true); // set the value of the animator
-            
-        }
-        else
-        {
-            animator.SetBool("isWalking", false); // set the value of the animator
-        }
-        
-    } 
-
 
     void FixedUpdate()
     {
-        rb2D.MovePosition(rb2D.position + Movement * moveSpeed * Time.fixedDeltaTime); // move the player
-
-       
+        Stun();
     }
 
-  
+    private Vector2 IsometricDirection(Vector2 inputDirection)
+    {
+        float isoX = (inputDirection.x - inputDirection.y) * 0.5f;
+        float isoY = (inputDirection.x + inputDirection.y) * 0.5f;
+        return new Vector2(isoX, isoY);
+    }
 
+    public void Stun()
+    {
+        if (isStunned == true)
+        {
+            // play animation 
+            StartCoroutine(StunCooldown());
+        }
+        else if (isStunned == false)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
+            Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
+            Vector2 isometricDirection = IsometricDirection(inputVector);
+            Vector2 movement = isometricDirection * moveSpeed * Time.fixedDeltaTime;
 
+            rb2D.MovePosition(rb2D.position + movement);
+        }
 
-
-    
+        // Add logic to disable player movement or animations
+    }
 }
+
 

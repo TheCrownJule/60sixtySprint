@@ -3168,9 +3168,9 @@ GameObject:
   - component: {fileID: 650309107}
   - component: {fileID: 650309106}
   - component: {fileID: 650309105}
-  - component: {fileID: 650309109}
   - component: {fileID: 650309112}
   - component: {fileID: 650309113}
+  - component: {fileID: 650309114}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3293,21 +3293,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &650309109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650309103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9316a2af48070409d2d29d9fdc702a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  pickUpRange: 1
-  isStunned: 0
 --- !u!114 &650309112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3342,6 +3327,21 @@ MonoBehaviour:
   - {fileID: 1217367220}
   - {fileID: 675758807}
   - {fileID: 1518845916}
+--- !u!114 &650309114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650309103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 332bf4eb09b839741b05da38386c22dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  pickUpRange: 1
+  isStunned: 0
 --- !u!1 &675758806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4033,7 +4033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461087038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 0.64, z: -4}
+  m_LocalPosition: {x: -4.28, y: 1.75, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4546,8 +4546,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 590.554, y: 230.89}
-  m_SizeDelta: {x: 667.258, y: 237.032}
+  m_AnchoredPosition: {x: 590.554, y: -34.68}
+  m_SizeDelta: {x: 667.258, y: 768.173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912605613
 MonoBehaviour:
@@ -4596,8 +4596,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.91
-  m_fontSizeBase: 80.91
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
