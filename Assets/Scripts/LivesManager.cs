@@ -24,7 +24,8 @@ public class LivesManager : MonoBehaviour
 
             if (remainingLives <= 0)
             {
-                GameOver();
+                GameOverText();
+                GameOver.GOinstance.PlayerLose();
             }
             else
             {
@@ -42,7 +43,7 @@ public class LivesManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    private void GameOverText()
     {
         // Display "Game Over" text
         gameOverText.enabled = true;

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// still working on this one
 public class CollectionManager : MonoBehaviour
 {
-    public float collectionTime = 60.0f; // Timer duration in seconds
-    public TextMeshProUGUI timerText; // UI Text to display the timer
-    public TextMeshProUGUI collectedItemsText; // UI Text to display collected items
+    public float collectionTime = 60.0f;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI collectedItemsText;
 
     public List<string> collectedItems = new List<string>();
 
@@ -46,7 +45,7 @@ public class CollectionManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isGameEnded == true)
+        if (isGameEnded)
         {
             return;
         }
@@ -55,18 +54,23 @@ public class CollectionManager : MonoBehaviour
         {
             string itemName = other.name;
             Debug.Log(itemName + " is the item name");
+
             if (!collectedItems.Contains(itemName))
             {
                 collectedItems.Add(itemName);
                 UpdateCollectedItemsUI();
 
                 // Disable or remove the collected item from the scene
+                other.gameObject.SetActive(false);
 
+                // Check if there are 0 items left to collect
+                if (collectedItems.Count == 0)
+                {
+                    HandleGameWin();
+                }
             }
-            other.gameObject.SetActive(false);
         }
     }
-
 
     void UpdateTimerUI()
     {
@@ -88,14 +92,14 @@ public class CollectionManager : MonoBehaviour
     void HandleGameWin()
     {
         isGameEnded = true;
-
+        GameOver.GOinstance.PlayerWin();
         Debug.Log("game won");
     }
 
     void HandleGameOver()
     {
         isGameEnded = true;
-
+        GameOver.GOinstance.PlayerLose();
         Debug.Log("game over");
     }
 }
