@@ -58,6 +58,7 @@ public class Rating : MonoBehaviour
 
     private void UpdateUI(int rating)
     {
+        SFXManager.SFXinstance.PlaySound("RatingSound");
         // Display the rating text
         if (ratingText != null)
         {

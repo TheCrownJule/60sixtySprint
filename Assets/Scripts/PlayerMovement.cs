@@ -12,14 +12,16 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator StunCooldown()
     {
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         isStunned = false;
+       
     }
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+       
     }
-
+    
     void FixedUpdate()
     {
         Stun();
@@ -36,15 +38,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isStunned == true)
         {
+            Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movement.Normalize(); // Ensure diagonal movement isn't faster
+
+            rb2D.velocity = movement * moveSpeed*0 ;
+
             // play animation 
             StartCoroutine(StunCooldown());
+            
         }
         else if (isStunned == false)
         {
             Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             movement.Normalize(); // Ensure diagonal movement isn't faster
 
-            rb2D.velocity = movement * moveSpeed;
+            rb2D.velocity = movement * moveSpeed ;
 
 
 

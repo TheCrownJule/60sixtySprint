@@ -29,6 +29,7 @@ public class GameOver : MonoBehaviour
         // Set the result text to "You won"
         resultText.text = "You won";
 
+       
         // Stop the game in the background (You may need to implement this)
         Time.timeScale = 0f;
 
@@ -53,6 +54,7 @@ public class GameOver : MonoBehaviour
 
     public void ResetGame()
     {
+        
         // Reset the game state
         Time.timeScale = 1f; // Reset time scale to normal
 

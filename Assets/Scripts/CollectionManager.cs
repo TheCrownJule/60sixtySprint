@@ -24,6 +24,7 @@ public class CollectionManager : MonoBehaviour
 
     void Start()
     {
+        
         timerCM = collectionTime;
         UpdateTimerUI();
         UpdateCollectedItemsUI();
@@ -55,6 +56,7 @@ public class CollectionManager : MonoBehaviour
 
         if (other.CompareTag("Pickup"))
         {
+            SFXManager.SFXinstance.PlaySound("CollectionSound");
             string itemName = other.name; // how do i change this to get the ScO name 
            
 
@@ -103,10 +105,11 @@ public class CollectionManager : MonoBehaviour
     void HandleGameWin()
     {
         isGameEnded = true;
-       
+      
         GameOver.GOinstance.PlayerWin();
         Rating.Rinstance.SetRating(timerCM, LivesManager.LMinstance.noLives);
         Debug.Log("game won");
+
     }
 
     void HandleGameOver()
