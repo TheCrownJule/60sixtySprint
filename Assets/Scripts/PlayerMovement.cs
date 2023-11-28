@@ -41,14 +41,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (isStunned == false)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movement.Normalize(); // Ensure diagonal movement isn't faster
 
-            Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
-            Vector2 isometricDirection = IsometricDirection(inputVector);
-            Vector2 movement = isometricDirection * moveSpeed * Time.fixedDeltaTime;
+            rb2D.velocity = movement * moveSpeed;
 
-            rb2D.MovePosition(rb2D.position + movement);
+
+
+            //float horizontalInput = Input.GetAxis("Horizontal");
+            //float verticalInput = Input.GetAxis("Vertical");
+
+            //Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
+            //Vector2 isometricDirection = IsometricDirection(inputVector);
+            //Vector2 movement = isometricDirection * moveSpeed * Time.fixedDeltaTime;
+
+            //rb2D.MovePosition(rb2D.position + movement);
         }
 
         // Add logic to disable player movement or animations
