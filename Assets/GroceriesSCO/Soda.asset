@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Soda
   m_EditorClassIdentifier: 
   itemNameID: Soda
-  itemPrefab: {fileID: 3623869729588805483, guid: 3bbed50bfc44bc6428bb6ae147660c47, type: 3}
+  itemPrefab: {fileID: 1378390940884139803, guid: 49eabdc226568c741bcc1a6c5e9f9a96, type: 3}
   position: {x: 4, y: 3.5, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}

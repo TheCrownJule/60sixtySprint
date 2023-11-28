@@ -7,7 +7,9 @@ public class CollectionManager : MonoBehaviour
 {
     public float collectionTime = 60.0f;
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI collectedItemsText;
+
+    // Use an array of TextMeshProUGUI for multiple labels
+    public TextMeshProUGUI[] collectedItemsLabels;
 
     public List<string> collectedItems = new List<string>();
 
@@ -52,10 +54,10 @@ public class CollectionManager : MonoBehaviour
 
         if (other.CompareTag("Pickup"))
         {
-            string itemName = other.name;
-            Debug.Log(itemName + " is the item name");
+            string itemName = other.name; // how do i change this to get the ScO name 
+           
 
-            if (!collectedItems.Contains(itemName))
+            if (!collectedItems.Contains(itemName)) 
             {
                 collectedItems.Add(itemName);
                 UpdateCollectedItemsUI();
@@ -64,7 +66,7 @@ public class CollectionManager : MonoBehaviour
                 other.gameObject.SetActive(false);
 
                 // Check if there are 0 items left to collect
-                if (collectedItems.Count == 0)
+                if (collectedItems.Count == 5)
                 {
                     HandleGameWin();
                 }
@@ -80,12 +82,20 @@ public class CollectionManager : MonoBehaviour
         }
     }
 
-    public void UpdateCollectedItemsUI()
+    void UpdateCollectedItemsUI()
     {
-        if (collectedItemsText != null)
+        // Update each label individually based on collected items
+        for (int i = 0; i < collectedItemsLabels.Length; i++)
         {
-            string collectedItemsDisplay = "Collected Items: " + string.Join(", ", collectedItems);
-            collectedItemsText.text = collectedItemsDisplay;
+            // Only activate the label if it's displaying an item
+            bool isActive = i < collectedItems.Count;
+            collectedItemsLabels[i].gameObject.SetActive(isActive);
+
+            // Set the text of the label if it's active and there's an item to display
+            if (isActive)
+            {
+                collectedItemsLabels[i].text = collectedItems[i];
+            }
         }
     }
 
