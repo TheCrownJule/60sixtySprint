@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 public class LivesManager : MonoBehaviour
 {
-    public TextMeshProUGUI gameOverText;
+   
     public Image[] lifeSprites;
 
     private int remainingLives = 3;
@@ -16,7 +16,7 @@ public class LivesManager : MonoBehaviour
     }
     private void Start()
     {
-        gameOverText.enabled = false;
+       
         UpdateLifeUI();
     }
 
@@ -31,7 +31,7 @@ public class LivesManager : MonoBehaviour
             if (remainingLives <= 0)
             {
                 noLives = true;
-                GameOverText();
+                
                 GameOver.GOinstance.PlayerLose();
                 Rating.Rinstance.SetRating(CollectionManager.instance.timerCM , noLives);
             }
@@ -51,11 +51,5 @@ public class LivesManager : MonoBehaviour
         }
     }
 
-    private void GameOverText()
-    {
-        // Display "Game Over" text
-        gameOverText.enabled = true;
-
-        // Optionally, you can restart the level or perform other actions here
-    }
+   
 }

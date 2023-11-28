@@ -24,7 +24,7 @@ public class CollectionManager : MonoBehaviour
 
     void Start()
     {
-        
+
         timerCM = collectionTime;
         UpdateTimerUI();
         UpdateCollectedItemsUI();
@@ -50,7 +50,7 @@ public class CollectionManager : MonoBehaviour
     {
         if (isGameEnded)
         {
-            
+
             return;
         }
 
@@ -58,9 +58,9 @@ public class CollectionManager : MonoBehaviour
         {
             SFXManager.SFXinstance.PlaySound("CollectionSound");
             string itemName = other.name; // how do i change this to get the ScO name 
-           
 
-            if (!collectedItems.Contains(itemName)) 
+
+            if (!collectedItems.Contains(itemName))
             {
                 collectedItems.Add(itemName);
                 UpdateCollectedItemsUI();
@@ -105,7 +105,7 @@ public class CollectionManager : MonoBehaviour
     void HandleGameWin()
     {
         isGameEnded = true;
-      
+
         GameOver.GOinstance.PlayerWin();
         Rating.Rinstance.SetRating(timerCM, LivesManager.LMinstance.noLives);
         Debug.Log("game won");
@@ -115,7 +115,7 @@ public class CollectionManager : MonoBehaviour
     void HandleGameOver()
     {
         isGameEnded = true;
-       
+
         GameOver.GOinstance.PlayerLose();
         Rating.Rinstance.SetRating(timerCM, LivesManager.LMinstance.noLives);
         Debug.Log("game over");
