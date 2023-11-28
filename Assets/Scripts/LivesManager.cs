@@ -7,7 +7,13 @@ public class LivesManager : MonoBehaviour
     public Image[] lifeSprites;
 
     private int remainingLives = 3;
+    public bool noLives = false;    
+    public static LivesManager LMinstance;
 
+    private void Awake()
+    {
+        LMinstance = this; 
+    }
     private void Start()
     {
         gameOverText.enabled = false;
@@ -24,8 +30,10 @@ public class LivesManager : MonoBehaviour
 
             if (remainingLives <= 0)
             {
+                noLives = true;
                 GameOverText();
                 GameOver.GOinstance.PlayerLose();
+                Rating.Rinstance.SetRating(CollectionManager.instance.timerCM , noLives);
             }
             else
             {

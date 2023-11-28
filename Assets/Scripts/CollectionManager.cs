@@ -13,7 +13,7 @@ public class CollectionManager : MonoBehaviour
 
     public List<string> collectedItems = new List<string>();
 
-    private float timer;
+    public float timerCM;
     public bool isGameEnded = false;
     public static CollectionManager instance;
 
@@ -24,7 +24,7 @@ public class CollectionManager : MonoBehaviour
 
     void Start()
     {
-        timer = collectionTime;
+        timerCM = collectionTime;
         UpdateTimerUI();
         UpdateCollectedItemsUI();
     }
@@ -36,10 +36,10 @@ public class CollectionManager : MonoBehaviour
             return;
         }
 
-        timer -= Time.deltaTime;
+        timerCM -= Time.deltaTime;
         UpdateTimerUI();
 
-        if (timer <= 0)
+        if (timerCM <= 0)
         {
             HandleGameOver();
         }
@@ -49,6 +49,7 @@ public class CollectionManager : MonoBehaviour
     {
         if (isGameEnded)
         {
+            
             return;
         }
 
@@ -78,7 +79,7 @@ public class CollectionManager : MonoBehaviour
     {
         if (timerText != null)
         {
-            timerText.text = "Time Left: " + Mathf.Max(0, timer).ToString("F1");
+            timerText.text = "Time Left: " + Mathf.Max(0, timerCM).ToString("F1");
         }
     }
 
@@ -102,14 +103,18 @@ public class CollectionManager : MonoBehaviour
     void HandleGameWin()
     {
         isGameEnded = true;
+       
         GameOver.GOinstance.PlayerWin();
+        Rating.Rinstance.SetRating(timerCM, LivesManager.LMinstance.noLives);
         Debug.Log("game won");
     }
 
     void HandleGameOver()
     {
         isGameEnded = true;
+       
         GameOver.GOinstance.PlayerLose();
+        Rating.Rinstance.SetRating(timerCM, LivesManager.LMinstance.noLives);
         Debug.Log("game over");
     }
 }

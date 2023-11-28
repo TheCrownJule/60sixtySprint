@@ -1,28 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class GameOver: MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public GameObject winPanel;
-    public GameObject losePanel;
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI resultText; // Text element in the UI to display win or lose
     public GameObject inGamePanel;
+
     public static GameOver GOinstance;
 
     private void Awake()
     {
-        GOinstance = this; 
+        GOinstance = this;
     }
+
     private void Start()
     {
-
         // Ensure that the initial state is set correctly
         ResetGame();
     }
 
     public void PlayerWin()
     {
-        // Display the win panel
-        winPanel.SetActive(true);
+        // Display the game over panel
+        gameOverPanel.SetActive(true);
+
+        // Set the result text to "You won"
+        resultText.text = "You won";
 
         // Stop the game in the background (You may need to implement this)
         Time.timeScale = 0f;
@@ -33,8 +38,11 @@ public class GameOver: MonoBehaviour
 
     public void PlayerLose()
     {
-        // Display the lose panel
-        losePanel.SetActive(true);
+        // Display the game over panel
+        gameOverPanel.SetActive(true);
+
+        // Set the result text to "You lost"
+        resultText.text = "You lost";
 
         // Stop the game in the background (You may need to implement this)
         Time.timeScale = 0f;
@@ -48,13 +56,10 @@ public class GameOver: MonoBehaviour
         // Reset the game state
         Time.timeScale = 1f; // Reset time scale to normal
 
-        // Deactivate both win and lose panels
-        winPanel.SetActive(false);
-        losePanel.SetActive(false);
+        // Deactivate the game over panel
+        gameOverPanel.SetActive(false);
 
         // Activate the in-game panel
         inGamePanel.SetActive(true);
     }
-
-    // asdad
 }
