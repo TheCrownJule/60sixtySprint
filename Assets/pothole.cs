@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pothole : MonoBehaviour
 {
-    public int health = 3; // player's health
+    /*public int health = 3; // player's health
 
     // see if player collides with pothole
     void OnTriggerEnter2D(Collider2D other)
@@ -15,5 +15,5 @@ public class pothole : MonoBehaviour
             health -= 1;
             
         }
-    }
+    } */
 }
