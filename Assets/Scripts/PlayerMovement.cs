@@ -8,13 +8,17 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb2D;
     public float pickUpRange = 1f;
     public bool isStunned = false;
-
+  //  private Animator animator;
     IEnumerator StunCooldown()
     {
 
         yield return new WaitForSeconds(7f);
         isStunned = false;
        
+    }
+    private void Awake()
+    {
+       // animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -27,12 +31,7 @@ public class PlayerMovement : MonoBehaviour
         Stun();
     }
 
-    private Vector2 IsometricDirection(Vector2 inputDirection)
-    {
-        float isoX = (inputDirection.x - inputDirection.y) * 0.5f;
-        float isoY = (inputDirection.x + inputDirection.y) * 0.5f;
-        return new Vector2(isoX, isoY);
-    }
+   
 
     public void Stun()
     {
@@ -42,7 +41,16 @@ public class PlayerMovement : MonoBehaviour
             movement.Normalize(); // Ensure diagonal movement isn't faster
 
             rb2D.velocity = movement * moveSpeed*0 ;
-
+            //if(movement.x ==0 || movement.y ==0)
+            //{
+            //    animator.SetFloat("X", movement.x);
+            //    animator.SetFloat("Y", movement.y);
+            //    animator.SetBool("isWalking", false);
+            //}
+            //else
+            //{
+            //    animator.SetBool("isWalking", true);
+            //}
             // play animation 
             StartCoroutine(StunCooldown());
             
@@ -56,18 +64,14 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            //float horizontalInput = Input.GetAxis("Horizontal");
-            //float verticalInput = Input.GetAxis("Vertical");
-
-            //Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
-            //Vector2 isometricDirection = IsometricDirection(inputVector);
-            //Vector2 movement = isometricDirection * moveSpeed * Time.fixedDeltaTime;
-
-            //rb2D.MovePosition(rb2D.position + movement);
+            
         }
 
         // Add logic to disable player movement or animations
     }
+
+
+    
 }
 
 
