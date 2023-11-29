@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNameID: Apple
   itemPrefab: {fileID: 8810267799761977120, guid: bcff4bf47df7b7b4996d7a658b68c39f, type: 3}
-  position: {x: 2, y: 2, z: 0}
+  position: {x: 30, y: 1, z: -3}
   rotation: {x: 0, y: 0, z: 0, w: 1}
