@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   itemNameID: Apple
-  itemPrefab: {fileID: 8810267799761977120, guid: bcff4bf47df7b7b4996d7a658b68c39f, type: 3}
-  position: {x: 30, y: 1, z: -3}
+  itemPrefab: {fileID: 20646569637503422, guid: e9e27a48665ccae4e80f331544bd9a58, type: 3}
+  position: {x: -34.2, y: -18.8, z: -3}
   rotation: {x: 0, y: 0, z: 0, w: 1}

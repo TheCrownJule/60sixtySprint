@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79064470133aff44b60f1e04d251f8c, type: 3}
   m_Name: Soda
   m_EditorClassIdentifier: 
-  itemNameID: Soda
-  itemPrefab: {fileID: 1378390940884139803, guid: 49eabdc226568c741bcc1a6c5e9f9a96, type: 3}
-  position: {x: 4, y: 3.5, z: 0}
+  itemNameID: Eggplant
+  itemPrefab: {fileID: 1836083141044655878, guid: 67e50dfea4ddd944eb03f9fe26c24129, type: 3}
+  position: {x: 31.7, y: 15.8, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}

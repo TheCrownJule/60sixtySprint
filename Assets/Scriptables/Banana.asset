@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79064470133aff44b60f1e04d251f8c, type: 3}
   m_Name: Banana
   m_EditorClassIdentifier: 
-  itemNameID: Banana
-  itemPrefab: {fileID: 3982820077825623298, guid: ef2bcb82ccb65b94aa5bdaddd4cc4bc7, type: 3}
-  position: {x: 1, y: 1, z: 0}
+  itemNameID: Croissant
+  itemPrefab: {fileID: 547849930710533461, guid: 32de0611e2f0362459c33103c614d210, type: 3}
+  position: {x: 60.3, y: -10.5, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}

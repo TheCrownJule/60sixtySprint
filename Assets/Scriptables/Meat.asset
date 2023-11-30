@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   itemNameID: Meat
-  itemPrefab: {fileID: 5596337004943666579, guid: 11376c8dc6da53a46a5ef433f91a4cc1, type: 3}
-  position: {x: 4, y: 4, z: 0}
+  itemPrefab: {fileID: 5227875427773595080, guid: 5bb6e438b8b91b24eb926f468f97cff0, type: 3}
+  position: {x: 60.9, y: -36.9, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}

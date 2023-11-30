@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79064470133aff44b60f1e04d251f8c, type: 3}
   m_Name: Milk
   m_EditorClassIdentifier: 
-  itemNameID: Milk
-  itemPrefab: {fileID: 3623869729588805483, guid: 3bbed50bfc44bc6428bb6ae147660c47, type: 3}
-  position: {x: 5, y: 1, z: 0}
+  itemNameID: Bread
+  itemPrefab: {fileID: 8152518895487448813, guid: 2e0c621d6a6a57e43a75c7742789ec98, type: 3}
+  position: {x: 31.7, y: -54.7, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 1}
