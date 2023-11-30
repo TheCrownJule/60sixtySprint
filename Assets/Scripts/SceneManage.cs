@@ -18,7 +18,8 @@ public class SceneManage : MonoBehaviour
     }
     public void LoadLevelThree()
     {
-
+        //index 3
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this is 2
     }
     public void LoadMenu()
     {
