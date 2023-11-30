@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,70 +7,61 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb2D;
     public float pickUpRange = 1f;
     public bool isStunned = false;
-  //  private Animator animator;
+
+    public SFXManager sfxManager; // Reference to the SFXManager script
+
     IEnumerator StunCooldown()
     {
-
         yield return new WaitForSeconds(7f);
         isStunned = false;
-       
     }
+
     private void Awake()
     {
-       // animator = GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
+
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-       
+        sfxManager = SFXManager.SFXinstance; // Assuming SFXManager is a singleton
     }
-    
+
     void FixedUpdate()
     {
         Stun();
     }
 
-   
-
     public void Stun()
     {
-        if (isStunned == true)
+        if (isStunned)
         {
             Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             movement.Normalize(); // Ensure diagonal movement isn't faster
 
-            rb2D.velocity = movement * moveSpeed*0 ;
-            //if(movement.x ==0 || movement.y ==0)
-            //{
-            //    animator.SetFloat("X", movement.x);
-            //    animator.SetFloat("Y", movement.y);
-            //    animator.SetBool("isWalking", false);
-            //}
-            //else
-            //{
-            //    animator.SetBool("isWalking", true);
-            //}
-            // play animation 
+            rb2D.velocity = movement * moveSpeed * 0;
+
+            // Play the stun sound
+            sfxManager.PlaySound("StunSound");
+
             StartCoroutine(StunCooldown());
-            
         }
-        else if (isStunned == false)
+        else
         {
             Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             movement.Normalize(); // Ensure diagonal movement isn't faster
 
-            rb2D.velocity = movement * moveSpeed ;
+            rb2D.velocity = movement * moveSpeed;
 
-
-
-            
+            // Stop the stun sound if the player is not stunned
+            sfxManager.StopSound("StunSound");
         }
 
-        // Add logic to disable player movement or animations
+        // Add logic to disable player movement or animation
+
+
+
     }
-
-
-    
 }
+
 
 
