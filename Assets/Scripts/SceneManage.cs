@@ -7,11 +7,14 @@ public class SceneManage : MonoBehaviour
 {
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene("SampleScene");
+        //load scene 3 in build index
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // 3
     }
     public void LoadLevelTwo()
     {
-        SceneManager.LoadScene("Delivery_Outside");
+       
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); // 4
+
     }
     public void LoadLevelThree()
     {
