@@ -8,6 +8,7 @@ TagManager:
   - Pickup
   - obstacle
   - ground
+  - Deliver
   layers:
   - Default
   - TransparentFX
